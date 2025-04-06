@@ -10,7 +10,7 @@
         this.filtros.addFiltro('Sudamerica', (e) => e.subregion ==='South America');
         this.filtros.addFiltro('Paises Superpoblados', (e) => e.population > 100000000);
         this.filtros.addFiltro('inusuales', (e) => e.borders === undefined);
-        this.filtros.addFiltro('incluyen Guaraní en su idioma',e => e.languages.some(i => e.languages[i] === "Guaraní"))
+        this.filtros.addFiltro('incluyen Guaraní en su idioma',e => e.languages && "grn" in e.languages)
         const selectElement = document.getElementById('paises-select');
         const filtrosDisponibles = this.filtros.getFiltros()
         filtrosDisponibles.forEach( f => selectElement.add(new Option(f.name, f.name)));
